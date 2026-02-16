@@ -6,10 +6,33 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXFileReference section */
+		860CB45B2F35236500C67FF2 /* Variables.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Variables.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		860CB45C2F35343600C67FF2 /* condicionales.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = condicionales.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		86ADFF2A2F3A7236003B9489 /* Arreglos.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Arreglos.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		86B3DAB22F3B990E00047D56 /* Conjuntos.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Conjuntos.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		86BF103E2F3BA0B200352E7A /* Diccionarios.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Diccionarios.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		86C136732F36575F00C87474 /* Funciones.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Funciones.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		86C136742F36681C00C87474 /* Opcionales.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Opcionales.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		86C212FC2F3BA78400988CA6 /* ejercicioHabitantesPorPais.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ejercicioHabitantesPorPais.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		86F95F472F3D03DF00F4F26E /* ejercicioVocales.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ejercicioVocales.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		86F95F482F3D189100F4F26E /* ejercicioPokemon.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ejercicioPokemon.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		860CB4542F3522CE00C67FF2 = {
 			isa = PBXGroup;
 			children = (
+				86F95F482F3D189100F4F26E /* ejercicioPokemon.playground */,
+				86F95F472F3D03DF00F4F26E /* ejercicioVocales.playground */,
+				86C212FC2F3BA78400988CA6 /* ejercicioHabitantesPorPais.playground */,
+				86BF103E2F3BA0B200352E7A /* Diccionarios.playground */,
+				86B3DAB22F3B990E00047D56 /* Conjuntos.playground */,
+				86ADFF2A2F3A7236003B9489 /* Arreglos.playground */,
+				86C136742F36681C00C87474 /* Opcionales.playground */,
+				86C136732F36575F00C87474 /* Funciones.playground */,
+				860CB45C2F35343600C67FF2 /* condicionales.playground */,
+				860CB45B2F35236500C67FF2 /* Variables.playground */,
 			);
 			sourceTree = "<group>";
 		};
