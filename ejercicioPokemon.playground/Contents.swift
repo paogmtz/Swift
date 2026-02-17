@@ -1,53 +1,42 @@
 var pikachu: [String : Int] = ["puntosDeAtaque": 10,
-                               "puntosDeVida": 100]
+                               "puntosDeVida": 500]
 
 var charmander: [String : Int] = ["puntosDeAtaque": 15,
                                  "puntosDeVida": 120]
 
-func simularBatallaPokemon(pokemon: [String: Int], pokemon2: [String: Int]) -> String {
-    var p1 = pokemon
+func simularBatallaPokemon(pokemon1: [String: Int], pokemon2: [String: Int]) -> String {
+    var p1 = pokemon1
     var p2 = pokemon2
+    var turno=1
     
-    var ataquePokemon1 = pokemon["puntosDeAtaque"] ?? 0
-    var ataquePokemon2 = pokemon2["puntosDeAtaque"] ?? 0
-    var vidaPokemon1 = pokemon["puntosDeVida"] ?? 0
-    var vidaPokemon2 = pokemon2["puntosDeVida"] ?? 0
-    
-    while (pokemon["puntosDeVida"] ?? 0) > 0 && (pokemon2["puntosDeVida"] ?? 0) > 0 {
+    while (p1["puntosDeVida"] ?? 0) > 0 && (p2["puntosDeVida"] ?? 0) > 0 {
         
-        if (pokemon["puntosDeAtaque"] ?? 0) > 0{
-            ataquePokemon1 -= 1
-            vidaPokemon2 -= 1
+        if turno == 1 {
+            p2["puntosDeVida"] = p2["puntosDeVida"]! - p1["puntosDeAtaque"]!
+            if p2["puntosDeVida"]! > 0 {
+                turno = 2
+            } else {
+                return "Ganó el pokemon1"
+            }
             
-            p1["puntosDeAtaque"] = ataquePokemon1
-            p2["puntosDeVida"] = vidaPokemon2
             
-        } else{
-            print("El pokemon \(p1) ya no tiene puntos de ataque")
+        } else {
+            p1["puntosDeVida"] = p1["puntosDeVida"]! - p2["puntosDeAtaque"]!
+            if p1["puntosDeVida"]! > 0 {
+                turno = 1
+            } else {
+                return "Ganó el pokemon2"
+            }
             
         }
         
-        if (pokemon2["puntosDeAtaque"] ?? 0) > 0{
-            ataquePokemon2 -= 1
-            vidaPokemon1 -= 1
-            
-            p2["puntosDeAtaque"] = ataquePokemon2
-            p1["puntosDeVida"] = vidaPokemon1
-            
-        } else{
-            print("El pokemon \(p2) ya no tiene puntos de ataque")
-            
-        }
         
-            
-        }
-    if (pokemon["puntosDeVida"] == 0){
-        pokemonMuerto
         
     }
-        
-    return "El pokemon ganador es: "
+    
+    return " "
 }
 
 
-simularBatallaPokemon(pokemon: pikachu, pokemon2: charmander)
+let resultado = simularBatallaPokemon(pokemon1: pikachu, pokemon2: charmander)
+print(resultado)
