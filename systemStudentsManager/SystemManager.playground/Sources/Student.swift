@@ -23,15 +23,20 @@ public class Student {
     
     public func studentDescription() -> String {
         var description = """
+            ***********************************
+            ESTUDIANTE
+            ***********************************
             Nombre: \(name)
             Edad: \(age)
             Email: \(email)
             Materias: 
             """
+        var contador = 1
         
         
         for subject in subjects {
-            description += "\(subject.name), "
+            description += "\n\(contador). \n\(subject.subjectDescription())"
+            contador+=1
         }
         return description
     }
