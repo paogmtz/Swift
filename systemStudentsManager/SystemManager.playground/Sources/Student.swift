@@ -46,6 +46,37 @@ public class Student: Describable {
         self.scores.append(score)
     }
     
+    //Debe tener el 60% de las materias pasadas
+    public func isApproved() -> Bool {
+        if subjects.isEmpty { return false }
+        var counterApprovedSubjects: Double = 0
+        var percentageSubjectsPassed: Double = 0
+        let totalSubjects = self.subjects.count
+        
+        for i in 0..<totalSubjects {      // .count: es una propiedad que te dice la cantidad total de elementos que hay dentro de una colección
+            
+            if subjects[i].isPassed(score: scores[i]){
+                counterApprovedSubjects += 1
+            }
+        }
+        
+        percentageSubjectsPassed = (counterApprovedSubjects*100) / Double(self.subjects.count)
+        
+        return percentageSubjectsPassed >= 60.0
+        
+    }
+    
+    public func getAvarageScore() -> Double {
+        if scores.isEmpty { return 0.0 }
+        var sum : Double = 0
+        var totalScore: Int = self.scores.count
+        for i in 0..<totalScore {
+           sum += scores[i]
+        }
+        
+        return sum / Double(totalScore)
+    }
+    
 }
         
         
