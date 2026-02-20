@@ -4,9 +4,9 @@ let student1 = Student(name: "Mich", age: 22, email: "pao.gonzma@gmail.com", sub
 
 let student2 = AdvancedStudent(name: "Jorge", age: 25, email: "ohchochy@gmail.com", subjects: [math], scores: [8], extraPoints: 1)
 
-let descStudent1 = student1.studentDescription()
+let descStudent1 = student1.describe()
 
-let descStudent2 = student2.studentDescription()
+let descStudent2 = student2.describe()
 
 print(descStudent1)
 print(descStudent2) 

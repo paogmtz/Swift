@@ -14,7 +14,7 @@ public class AdvancedStudent: Student {
         super.init(name: name, age: age, email: email, subjects: subjects, scores: scores)
     }
     
-    public override func studentDescription() -> String {
+    public override func describe() -> String {
         var description = """
             ***********************************
             ESTUDIANTE AVANZADO
@@ -29,7 +29,7 @@ public class AdvancedStudent: Student {
         
         
         for subject in subjects {
-            description += "\n\(contador). \n\(subject.subjectDescription())"
+            description += "\n\(contador). \n\(subject.describe())"
             contador+=1
         }
         return description
