@@ -69,7 +69,7 @@ public class Student: Describable {
     public func getAvarageScore() -> Double {
         if scores.isEmpty { return 0.0 }
         var sum : Double = 0
-        var totalScore: Int = self.scores.count
+        let totalScore: Int = self.scores.count
         for i in 0..<totalScore {
            sum += scores[i]
         }
