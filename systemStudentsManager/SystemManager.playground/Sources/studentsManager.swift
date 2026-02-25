@@ -8,7 +8,7 @@
 import Foundation
 
 public protocol Manageable{
-    func insertStudent( student: Student)
+    func insertStudent( student: Student?)
     func asignSubjectToStudent(subject: Subject, score: Double, targetStudent: Student)
     func generateStudentsReport() -> [Student]
     func getApprovedStudents() -> [Student]
@@ -26,7 +26,12 @@ public class StudentsManager: Manageable{
         self.students = students
     }
     
-    public func insertStudent(student: Student) {
+    //MANEJO DE ERRORES CON GUARD, REVISA SI EL CALOR QUE LE DAS ES VERDADERO
+    //es para tener un codigo seguro
+    public func insertStudent(student: Student?) {
+        guard let student else{
+            return
+        }
         self.students.append(student)
     }
     
