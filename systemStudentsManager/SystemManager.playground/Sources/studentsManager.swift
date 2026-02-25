@@ -8,9 +8,9 @@
 import Foundation
 
 public protocol Manageable{
-    func insertStudent( student: Student?)
-    func asignSubjectToStudent(subject: Subject, score: Double, targetStudent: Student)
-    func generateStudentsReport() -> [Student]
+    func insertStudent( student: Student?) throws
+    func asignSubjectToStudent(subject: Subject, score: Double, targetStudent: Student) throws
+    func generateStudentsReport() throws
     func getApprovedStudents() -> [Student]
     func getReprobedStudents() -> [Student]
     func getAverages() -> [Double]
@@ -22,35 +22,49 @@ public protocol Manageable{
 public class StudentsManager: Manageable{
     
     var students: [Student]
-    public init(students: [Student]) {
+    let maxStudents: Int
+    
+    public init(students: [Student], maxStudents: Int) {
         self.students = students
+        self.maxStudents = maxStudents
     }
     
     //MANEJO DE ERRORES CON GUARD, REVISA SI EL CALOR QUE LE DAS ES VERDADERO
     //es para tener un codigo seguro
-    public func insertStudent(student: Student?) {
+    public func insertStudent(student: Student?) throws {
         guard let student else{
-            return
+            throw ManagerError.studentNotAddedError
         }
-        self.students.append(student)
+        if (students.count < maxStudents) {
+            self.students.append(student)
+        } else {
+            throw ManagerError.maxStudentsReachedError(max: maxStudents)
+        }
+        
     }
     
-    public func asignSubjectToStudent(subject: Subject, score: Double, targetStudent: Student) {
+    public func asignSubjectToStudent(subject: Subject, score: Double, targetStudent: Student) throws{
         for currentStudent in students{
             if targetStudent.email == currentStudent.email {
                 currentStudent.assignSubject(subject: subject, score: score)
                 
+            } else{
+                throw ManagerError.subjectNotAssignedError
             }
         }
         
     }
     
-    public func generateStudentsReport() -> [Student] {
-        for currentStudent in self.students{
-            print(currentStudent.describe())
+    public func generateStudentsReport() throws {
+        if students.isEmpty {
+            throw ManagerError.reportNotFoundError
+        } else{
+            for currentStudent in self.students{
+                print(currentStudent.describe())
+            }
         }
         
-        return []
+        
     }
     
     //Vamos a implementar filter (filtra)

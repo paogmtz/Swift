@@ -10,21 +10,28 @@ let student1 = Student(name: "Mich", age: 22, email: "pao.gonzma@gmail.com", sub
 
 let student2 = AdvancedStudent(name: "Jorge", age: 25, email: "ohchochy@gmail.com", subjects: [], scores: [], extraPoints: 10)
 
-let service = StudentsManager(students: [])
+let service = StudentsManager(students: [], maxStudents: 10)
 
-service.insertStudent(student: student1)
-service.insertStudent(student: student2)
+do{
+    try service.insertStudent(student: student1)
+    try service.insertStudent(student: student2)
 
-service.asignSubjectToStudent(subject: math, score: 85, targetStudent: student1)
-service.asignSubjectToStudent(subject: spanish, score: 70, targetStudent: student1)
-service.asignSubjectToStudent(subject: biology, score: 90, targetStudent: student1)
-
-
-service.asignSubjectToStudent(subject: math, score: 90, targetStudent: student2)
-service.asignSubjectToStudent(subject: spanish, score: 60, targetStudent: student2)
-service.asignSubjectToStudent(subject: biology, score: 60, targetStudent: student2)
+    try service.asignSubjectToStudent(subject: math, score: 85, targetStudent: student1)
+    try service.asignSubjectToStudent(subject: spanish, score: 70, targetStudent: student1)
+    try service.asignSubjectToStudent(subject: biology, score: 90, targetStudent: student1)
 
 
-service.generateStudentsReport()
+    try service.asignSubjectToStudent(subject: math, score: 90, targetStudent: student2)
+    try service.asignSubjectToStudent(subject: spanish, score: 60, targetStudent: student2)
+    try service.asignSubjectToStudent(subject: biology, score: 60, targetStudent: student2)
+
+    try service.generateStudentsReport()
+
+} catch {
+    print(error.localizedDescription)
+}
+
+
+
 let avarage = service.getAverages()
 let subjects = service.getCoursedSubjects()
